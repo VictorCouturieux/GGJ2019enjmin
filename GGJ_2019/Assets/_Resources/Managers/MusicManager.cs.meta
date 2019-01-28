@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 412b38a8a4360854c94f0d2f4bf0cd0a
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - normalMusic: {fileID: 8300000, guid: a3c9aea021e37694ebc07dedb794d172, type: 3}
+  - KnightMusic: {fileID: 8300000, guid: 3fbb7097163ace340b439a0ff23e8998, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
