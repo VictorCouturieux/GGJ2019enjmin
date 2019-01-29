@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
 
     private MusicManager musicManager = null;
     private Player player = null;
+    private PlayerMovement playerMovement;
 
     // Start is called before the first frame update
     private void Start()
@@ -35,11 +36,15 @@ public class GameManager : MonoBehaviour
 
         player = FindObjectOfType<Player>();
         Assert.IsNotNull(player);
+
+        playerMovement = FindObjectOfType<PlayerMovement>();
+        Assert.IsNotNull(playerMovement);
     }
 
     // Update is called once per frame
     private void Update()
     {
+        
     }
 
     public void ChangeWorldState(WorldState nextWorldState)
@@ -57,7 +62,15 @@ public class GameManager : MonoBehaviour
 
             CurrentWorldState = WorldState.Normal;
 
-            PlayerMovement.anim.runtimeAnimatorController = player.GetComponent<PlayerMovement>().NormalAnimControl;
+//            PlayerMovement.anim.runtimeAnimatorController = player.GetComponent<PlayerMovement>().NormalAnimControl;
+            
+//            playerMovement.animatorOverrideController[playerMovement.idleNormal] = playerMovement.idleKnight;
+//            playerMovement.animatorOverrideController[playerMovement.runNormal] = playerMovement.runKnight;
+            playerMovement.animatorOverrideController[playerMovement.idleNormal] = playerMovement.idleNormal;
+            playerMovement.animatorOverrideController[playerMovement.runNormal] = playerMovement.runNormal;
+
+//            playerMovement.animatorOverrideController.
+            
         }
         else if (nextWorldState == WorldState.Knight)
         {
@@ -69,7 +82,14 @@ public class GameManager : MonoBehaviour
 
             CurrentWorldState = WorldState.Knight;
 
-            PlayerMovement.anim.runtimeAnimatorController = player.GetComponent<PlayerMovement>().KnightAnimControl;
+//            PlayerMovement.anim.runtimeAnimatorController = player.GetComponent<PlayerMovement>().KnightAnimControl;
+            playerMovement.animatorOverrideController[playerMovement.idleNormal] = playerMovement.idleKnight;
+            playerMovement.animatorOverrideController[playerMovement.runNormal] = playerMovement.runKnight;
+            
+            
+            
+//            playerMovement.animatorOverrideController[playerMovement.idleKnight] = playerMovement.idleNormal;
+//            playerMovement.animatorOverrideController[playerMovement.runKnight] = playerMovement.runNormal;
         }
 
         musicManager.ChangeMusic(nextWorldState);

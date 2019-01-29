@@ -23,5 +23,8 @@ public class InputManager : MonoBehaviour
         {
             player.SpecialAction();
         }
+        if(Input.GetKeyDown("escape")) {//When a key is pressed down it see if it was the escape key if it was it will execute the code
+            Application.Quit(); // Quits the game
+        }
     }
 }

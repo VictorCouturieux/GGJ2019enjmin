@@ -34,7 +34,10 @@ public class Player : MonoBehaviour
 
         if (hit)
         {
-            GetComponent<PlayerMovement>().SetIsPickUp(hit);
+            if (gameManager.CurrentWorldState == GameManager.WorldState.Normal)
+            {
+                GetComponent<PlayerMovement>().SetIsPickUp(hit);
+            }
         }
 
         if (gameManager.CurrentWorldState == GameManager.WorldState.Knight)
